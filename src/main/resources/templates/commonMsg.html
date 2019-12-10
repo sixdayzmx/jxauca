@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--<link rel="icon" href="favicon.ico">-->
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/dist/css/bootstrap.css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.css}"
+          rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="assets/css/ie10-viewport-bug-workaround.css" th:href="@{/assets/css/ie10-viewport-bug-workaround.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/dashboard.css" th:href="@{/assets/css/dashboard.css}" rel="stylesheet">
+    <script src="dist/js/jquery.min.js" th:src="@{/webjars/jquery/1.11.1/jquery.js}"></script>
+    <!--删除单个内容-->
+
+
+    <style>
+        .toright{
+            float: right;
+        }
+        .heightsize{
+            height: 425px;
+        }
+        .mediaheight{
+            width: 670px;
+        }
+        .comment-body{
+            display:none;
+        }
+        .comment-text{
+            width: 600px;
+        }
+        /*.style-class{*/
+        /*    overflow: hidden;*/
+        /*    text-overflow: ellipsis;*/
+        /*    display: -webkit-box;*/
+        /*    -webkit-line-clamp: 2;*/
+        /*    -webkit-box-orient: vertical;*/
+        /*}*/
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            /**
+             * 不需要传入Rid过去，因为直接把所有的回复都显示出来就好了。
+             * 那所有的回复都找出来了，又该怎么渲染呢？头痛啊。
+             * 还需要为每个评论的盒子添加一个id值为Rid,然后RRid与之对应就显示在其下
+             */
+            $.ajax({
+                url:"/comment/RComment",
+                type:'POST',
+                dataType:"json",
+                success:function (data) {
+                    // console.log(data[1]["rrid"]);
+                    //获取所有评论的Rid
+                    var myArray=new Array()
+                   $(".comment-text").each(function () {
+                        var a=$(this).attr("id");
+                        myArray.push(a);
+                   })
+                   console.log(myArray);
+                   for (i in myArray){
+                       for (j in data) {
+                           // console.log(data[j]);
+                           // console.log(data[j]["rrid"]);
+
+                           if(myArray[i]==data[j]["rrid"]){
+                               console.log("nihao");
+                               var tt;
+                               var tp;
+                               tt='<div>'+
+                                   '<span>'+
+                                   data[j]["rownername"]+
+                                   '</span>'+
+                                   '</div>';
+                               tp='<h4>'+data[j]["rcomments"]+'</h4>';
+                               $("#"+myArray[i]).append('<div>'+tt+tp+'</div>');
+                           }
+
+                           // if(myArray[i]==data[j]["rrid"]){
+
+                           // }
+                       }
+
+                   }
+                }
+            })
+
+            $(".comment").click(function () {
+                $(this).removeAttr("style");
+            });
+
+            $(".toright").click(function () {
+               $(this).next(".comment-body").css("display","block");
+            });
+
+        });
+
+
+    </script>
+
+</head>
+
+<body>
+
+<!--nav 引用过来-->
+<div th:replace="~{common/top::top_nav}"></div>
+
+<div class="container-fluid">
+    <div class="row">
+
+
+        <!--sidebar 左侧导航栏-->
+        <div th:replace="~{common/left::sidebar}"></div>
+
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">有话好好说</h1>
+            <div class="heightsize  mediaheight">
+            <div th:each="msg,itState: ${msgList}">
+                <div class="media" th:id="${msg.getRid()}">
+                    <div class="media-left">
+                        <span class="label label-info" th:text="${msg.getRownername()}"> </span>
+                    </div>
+                    <div class="media-body">
+                        <div class="comment-text" th:id="${msg.getRid()}">
+                            <h4 class="media-heading list-group-item-heading comment"
+                                style=" overflow: hidden;text-overflow: ellipsis;display: -webkit-box; -webkit-line-clamp: 2;-webkit-box-orient: vertical;"
+                                th:text="':  '+${msg.getRcomments()}"></h4>
+                            <input class="btn btn-default btn-xs toright" type="button" value="回复">
+                            <div class="comment-body">
+                                <form th:action="@{/comment/addComments}">
+                                    <input type="text" class="form-control" rows="3" name="Rid" th:value="${msg.getRid()}" style="display: none"></input>
+                                    <input type="text" class="form-control" rows="3" name="comment"></input>
+                                    <input class="btn btn-default toright" type="submit" value="评论">
+                                </form>
+                            </div>
+                            <div class="comment-body">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+                <form th:action="@{/comment/addComments}">
+                    <input type="text" class="form-control" rows="3" name="comment"></input>
+                    <input class="btn btn-default toright" type="submit" value="评论">
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+
+
+
+</body>
+</html>

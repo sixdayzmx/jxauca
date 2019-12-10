@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zmx.jxauca.mapper.MsgMapper">
+
+    <select id="selectAll" resultType="com.zmx.jxauca.entity.Msg">
+        select * from msg_table where RRId=0;
+    </select>
+    <insert id="addComment" parameterType="com.zmx.jxauca.entity.Msg">
+        insert into msg_table (RTId,RRId,ROwnerName,RTargetName,RComments,RTime) values(#{rtid},#{rrid},#{rownername},#{rtargetname},#{rcomments},#{rtime})
+    </insert>
+    <select id="selectMaxRTId" resultType="java.lang.Integer">
+        select max(RTId) from msg_table
+    </select>
+
+    <select id="selectAllR" resultType="com.zmx.jxauca.entity.Msg">
+        select * from msg_table where RRId!=0;
+    </select>
+
+</mapper>
