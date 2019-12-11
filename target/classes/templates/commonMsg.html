@@ -139,8 +139,8 @@
                                 th:text="':  '+${msg.getRcomments()}"></h4>
                             <input class="btn btn-default btn-xs toright" type="button" value="回复">
                             <div class="comment-body">
-                                <form th:action="@{/comment/addComments}">
-                                    <input type="text" class="form-control" rows="3" name="Rid" th:value="${msg.getRid()}" style="display: none"></input>
+                                <form th:action="@{/comment/Recover}">
+                                    <input type="text" class="form-control" rows="3" name="RRid" th:value="${msg.getRid()}" style="display: none;"></input>
                                     <input type="text" class="form-control" rows="3" name="comment"></input>
                                     <input class="btn btn-default toright" type="submit" value="评论">
                                 </form>

@@ -10,4 +10,5 @@ public interface MsgMapper {
     public Integer addComment(Msg msg);
     public Integer selectMaxRTId();
     public List<Msg> selectAllR();
+    public Msg selectByRId(int rrid);
 }

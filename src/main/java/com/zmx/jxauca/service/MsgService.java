@@ -8,4 +8,5 @@ public interface MsgService {
     public List<Msg> showAll();
     public int addComment(Msg msg);
     public List<Msg> showAllR();
+    public boolean recover(int rrid,String userName,String comment);
 }

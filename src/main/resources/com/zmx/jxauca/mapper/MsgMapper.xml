@@ -16,5 +16,9 @@
     <select id="selectAllR" resultType="com.zmx.jxauca.entity.Msg">
         select * from msg_table where RRId!=0;
     </select>
+    
+    <select id="selectByRId" resultType="com.zmx.jxauca.entity.Msg">
+        select * from msg_table where RId=#{rrid}
+    </select>
 
 </mapper>

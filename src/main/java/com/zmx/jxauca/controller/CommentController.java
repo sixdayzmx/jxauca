@@ -78,8 +78,38 @@ public class CommentController {
     public List<Msg> rComment(){
 
         List<Msg> msgs = msgService.showAllR();
-        System.out.println("进来了");
+        System.out.println("进来了RComment");
         return msgs;
+    }
+
+    @RequestMapping("/Recover")
+    public String recover(HttpServletRequest request,HttpServletResponse response,@RequestParam int RRid,@RequestParam String comment) throws IOException {
+        /**
+         * 首先需要获取cookie中保存的Rid
+         */
+        Cookie[] cookies = request.getCookies();
+        String userName=null;
+        if(cookies!=null){
+            for(int i=0;i<cookies.length;i++){
+                if(cookies[i].getName().equals("userName")){
+                    userName = cookies[i].getValue();
+                }
+            }
+        }
+        else {
+            response.getWriter().write("请您先登录吧");
+        }
+        //现在有了rrid、userName和Comment
+        //然后RId自动生成的，RTId为0,RRId为rrid,ROwnerName为userName，RTargetName为由RRId去和RId匹配获得的ROwnerName
+        boolean recover = msgService.recover(RRid, userName, comment);
+        if(recover){
+            return "redirect:/comment/show";
+        }
+        else {
+            System.out.println("回复出错，请重试");
+            return "redirect:/comment/show";
+        }
+
     }
 
 }
