@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1504c4ff-764a-4667-8541-cda132a67017" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/不好.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,7 +33,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zmx/jxauca/controller/CommentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
+            <state relative-caret-position="171">
               <caret line="103" column="55" lean-forward="true" selection-start-line="103" selection-start-column="55" selection-end-line="103" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -429,18 +430,25 @@
       <workItem from="1575851159679" duration="11582000" />
       <workItem from="1575872562303" duration="8759000" />
       <workItem from="1575937387470" duration="25462000" />
-      <workItem from="1576023999927" duration="6204000" />
+      <workItem from="1576023999927" duration="6829000" />
     </task>
+    <task id="LOCAL-00001" summary="增加了回复评论的功能">
+      <created>1576032687439</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1576032687439</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57167000" />
+    <option name="totallyTimeSpent" value="57792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7160752" visible="true" weight="0.2124665" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7160752" visible="true" weight="0.2124665" />
       <window_info id="Structure" order="1" sideWeight="0.2776618" side_tool="true" weight="0.18967828" />
       <window_info id="Web" order="2" sideWeight="0.2776618" side_tool="true" weight="0.18967828" />
       <window_info id="npm" order="3" sideWeight="0.28392485" side_tool="true" visible="true" weight="0.18967828" />
@@ -451,15 +459,15 @@
       <window_info id="Favorites" order="8" sideWeight="0.3862213" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7446381" visible="true" weight="0.24860336" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7446381" weight="0.24860336" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932975" weight="0.39888424" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932975" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49932975" weight="0.32960895" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4966488" weight="0.23903818" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.25536194" side_tool="true" visible="true" weight="0.24860336" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" visible="true" weight="0.24860336" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
@@ -478,6 +486,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="增加了回复评论的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加了回复评论的功能" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/assets/js/src/customizer.js">
@@ -685,7 +697,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zmx/jxauca/controller/CommentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="171">
           <caret line="103" column="55" lean-forward="true" selection-start-line="103" selection-start-column="55" selection-end-line="103" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
